@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		body {
+			font-family: Arial;
+		}
+		button {
+			width: 200px;
+			height: 100px;
+			font-size: 1.5em;
+			margin-top: 10px;
+		}
+		#content {
+			margin: 10px;
+		}
+		.container {
+			border-style: solid;
+			background-color: #66ccf9;
+			height: auto;
+			width: 700px;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+    <div class="container">
+        <div id="content-list">
+            <h2 id="title">Henloo. I am Jacinto Jose Guban</h2>
+            <ul id="bucketList">
+                <li>I'm a 3rd-year Computer Science College Student at EAC Cavite.</li>
+                <li>I enjoy playing video games, especially open-world and adventure games.</li>
+                <li>I often watch series, movies, and also reading novels.</li>
+                <li>Traveling to new places and trying different foods is something I want to do more often.</li>
+            </ul>
+        </div>
+    </div>
+
+    
+    <p>    
+        Add New: <input type="text" id="newSkill" placeholder="add new here">
+    </p>
+
+    
+    <button id="demoButton" onclick="changePageBackground()">Change banner background</button>
+    <button id="demoButton" onclick="changeBackground()">Change page background</button>
+    <button id="demoButton" onclick="addNewElement()">Add new item on the list</button>
+    
+    
+    <button onclick="changeFontFamily()">Change Font Family</button>
+    <button onclick="makeBold()">Make Items Bold</button>
+
+    <script>
+        function changeBackground() {
+            document.querySelector('body').style.backgroundColor = '#f98066' ;
+        }
+
+        function changePageBackground() {
+            document.querySelector('.container').style.backgroundColor = '#dc66f9';
+        }
+
+        function addNewElement() {
+            var myInput = document.getElementById("newSkill").value;
+            var ul = document.getElementById("bucketList");
+            var li = document.createElement('li');
+            li.appendChild(document.createTextNode(myInput));
+            ul.appendChild(li);
+            document.getElementById("newSkill").value = "";
+        }
+
+        function changeFontFamily() {
+            document.getElementById("bucketList").style.fontFamily = "Courier New, monospace";
+        }
+
+        function makeBold() {
+            var listItems = document.querySelectorAll("#bucketList li");
+            listItems.forEach(item => {
+                item.style.fontWeight = "bold";
+            });
+        }
+    </script>
+</body>
